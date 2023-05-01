@@ -1,4 +1,5 @@
 :root {
+	--primary-color: oklch(62.85% 0.188 274.26);
 	--lavender-color: oklch(64.57% 0.237 312.69);
 	--blue-color: oklch(62.51% 0.182 274.3);
 }
@@ -10,5 +11,7 @@
 	box-sizing: border-box;
 }
 
-body {
+a {
+	color: var(--primary-color);
+	text-decoration: none;
 }
