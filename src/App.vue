@@ -17,6 +17,7 @@ import LayoutSidebar from '@/components/layout/Sidebar.vue';
 .content {
 	max-width: 1400px;
 	padding: 30px;
+	margin-left: 250px;
 	transition: 0.2s;
 }
 </style>
