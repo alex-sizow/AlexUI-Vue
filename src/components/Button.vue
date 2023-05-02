@@ -2,7 +2,7 @@
 const props = defineProps({
 	label: {
 		type: String,
-		default: 'Button',
+		required: false,
 	},
 	color: {
 		type: String,
@@ -24,6 +24,10 @@ const props = defineProps({
 		type: String,
 		required: false,
 	},
+	size: {
+		type: String,
+		default: 'normal',
+	},
 });
 </script>
 
@@ -34,10 +38,20 @@ const props = defineProps({
 			`button__${color}`,
 			{ button__rounded: rounded },
 			{ button__outlined: outlined },
+			{ button__icon: icon },
+			{ button__large: size === 'large' },
 		]"
 		:disabled="disabled">
-		<span v-if="icon"></span>
-		<span>{{ label }}</span>
+		<span
+			class="button__icon"
+			v-if="icon"
+			><font-awesome-icon :icon="['fas', icon]"
+		/></span>
+		<span
+			v-if="label"
+			class="button__lable"
+			>{{ label }}</span
+		>
 	</button>
 </template>
 
@@ -216,6 +230,18 @@ const props = defineProps({
 				oklch(100% 0 0)
 			);
 		}
+	}
+
+	&:enabled:has(.button__lable) {
+		.button__icon {
+			margin-right: 9px;
+		}
+	}
+
+	&__large {
+		font-size: 17px;
+		height: 48px;
+		padding: 0 30px;
 	}
 }
 </style>
