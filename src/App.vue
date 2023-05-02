@@ -32,10 +32,10 @@ const toggleMenu = () => {
 .content {
 	max-width: 1400px;
 	padding: 30px;
-	margin-left: 250px;
+	margin-left: 280px;
 	transition: 0.2s;
 	&__full {
-		margin-left: 0px;
+		margin-left: 30px;
 	}
 }
 
@@ -49,7 +49,7 @@ const toggleMenu = () => {
 	position: fixed;
 	left: 0;
 	width: 15px;
-	background: var(--primary-color);
+	background: var(--primary);
 	height: 100%;
 	top: 62px;
 	z-index: 1;
