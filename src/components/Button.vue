@@ -20,6 +20,10 @@ const props = defineProps({
 		type: Boolean,
 		required: false,
 	},
+	icon: {
+		type: String,
+		required: false,
+	},
 });
 </script>
 
@@ -32,7 +36,8 @@ const props = defineProps({
 			{ button__outlined: outlined },
 		]"
 		:disabled="disabled">
-		{{ label }}
+		<span v-if="icon"></span>
+		<span>{{ label }}</span>
 	</button>
 </template>
 
@@ -50,38 +55,93 @@ const props = defineProps({
 	transition: 0.3s;
 	&:enabled:hover {
 		border-radius: 12px;
+		scale: 0.96;
+	}
+	&:enabled:active {
+		transition: 0.2s;
+		border-radius: 16px;
+		scale: 0.95;
 	}
 	&__primary {
-		background: var(--primary);
-
+		background: linear-gradient(
+			0deg,
+			var(--primary),
+			var(--primary)
+		);
 		box-shadow: 2px 2px 3px oklch(45.15% 0.129 274.65),
 			-2px -2px 3px oklch(74.47% 0.131 272.33);
 		&:enabled:hover {
-			background: var(--primary-hover);
+			background: linear-gradient(
+				0deg,
+				var(--primary-hover),
+				var(--primary-hover)
+			);
 			box-shadow: 1px 1px 2px oklch(55.27% 0.075 278.16),
 				-1px -1px 2px oklch(94.92% 0.025 249.95);
 		}
+		&:enabled:active {
+			box-shadow: none;
+			background: linear-gradient(
+				145deg,
+				oklch(71.82% 0.1 277.78),
+				oklch(80.89% 0.09676965013131865 277.54052466955136)
+			);
+		}
 	}
 	&__second {
-		background: var(--second);
-
+		background: linear-gradient(
+			0deg,
+			var(--second),
+			var(--second)
+		);
 		box-shadow: 2px 2px 3px oklch(36.23% 0.123 313.57),
 			-2px -2px 3px oklch(78.71% 0.214 327.37);
 		&:enabled:hover {
-			background: var(--second-hover);
+			background: linear-gradient(
+				0deg,
+				var(--second-hover),
+				var(--second-hover)
+			);
+
 			box-shadow: 1px 1px 2px oklch(53.78% 0.079 314.4),
 				-1px -1px 2px
 					oklch(95.99% 0.03561632559062425 325.8508054977197);
 		}
+		&:enabled:active {
+			box-shadow: none;
+			background: linear-gradient(
+				145deg,
+				oklch(69.02% 0.106 314.69),
+				oklch(88.94% 0.103 326.4)
+			);
+		}
 	}
 	&__success {
-		background: var(--success);
+		background: linear-gradient(
+			0deg,
+			var(--success),
+			var(--success)
+		);
+
 		box-shadow: 2px 2px 3px oklch(48.91% 0.103 164.78),
 			-2px -2px 3px oklch(88.9% 0.177 169.38);
 		&:enabled:hover {
-			background: var(--success-hover);
+			background: linear-gradient(
+				0deg,
+				var(--success-hover),
+				var(--success-hover)
+			);
+
 			box-shadow: 1px 1px 2px oklch(55.96% 0.065 173.47),
 				-1px -1px 2px oklch(95.02% 0.075 195.96);
+		}
+		&:enabled:active {
+			background: linear-gradient(
+				140deg,
+				oklch(75.56% 0.102 173.19),
+				oklch(90.56% 0.102 173.19)
+			);
+			box-shadow: none;
 		}
 	}
 	&__info {
@@ -97,6 +157,9 @@ const props = defineProps({
 				-1px -1px 2px
 					oklch(93.45% 0.10162598362888804 195.5530904688666);
 		}
+		&:enabled:active {
+			box-shadow: none;
+		}
 	}
 	&__warning {
 		background: var(--warning);
@@ -110,6 +173,9 @@ const props = defineProps({
 				-1px -1px 2px
 					oklch(99.5% 0.024805960337700505 106.84204842350611);
 		}
+		&:enabled:active {
+			box-shadow: none;
+		}
 	}
 	&__danger {
 		background: var(--danger);
@@ -121,6 +187,9 @@ const props = defineProps({
 			background: var(--danger-hover);
 			box-shadow: 1px 1px 2px oklch(55.9% 0.059 10.32),
 				-1px -1px 2px oklch(98.84% 0.01 325.65);
+		}
+		&:enabled:active {
+			box-shadow: none;
 		}
 	}
 	&:disabled {
@@ -138,6 +207,14 @@ const props = defineProps({
 		color: oklch(0% 0 325.65);
 		&:enabled:hover {
 			background: transparent;
+		}
+		&:enabled:active {
+			border-radius: 18px;
+			background: linear-gradient(
+				145deg,
+				oklch(92.49% 0 0),
+				oklch(100% 0 0)
+			);
 		}
 	}
 }
