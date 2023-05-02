@@ -25,6 +25,7 @@ import Button from '../components/Button.vue';
 				color="danger"></Button>
 		</div>
 	</div>
+
 	<div class="rounded">
 		<h2 class="heading-2">Rounded</h2>
 		<div class="colors__line">
@@ -51,6 +52,19 @@ import Button from '../components/Button.vue';
 				label="Danger"
 				color="danger"
 				:rounded="true"></Button>
+		</div>
+	</div>
+	<div class="colors">
+		<h2 class="heading-2">Disabled</h2>
+		<div class="colors__line">
+			<Button
+				label="Primary"
+				:disabled="true"></Button>
+			<Button
+				label="Second"
+				color="second"
+				:rounded="true"
+				:disabled="true"></Button>
 		</div>
 	</div>
 </template>

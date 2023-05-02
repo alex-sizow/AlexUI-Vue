@@ -12,6 +12,10 @@ const props = defineProps({
 		type: Boolean,
 		required: false,
 	},
+	disabled: {
+		type: Boolean,
+		required: false,
+	},
 });
 </script>
 
@@ -21,7 +25,8 @@ const props = defineProps({
 			'button',
 			`button__${color}`,
 			{ button__rounded: rounded },
-		]">
+		]"
+		:disabled="disabled">
 		{{ label }}
 	</button>
 </template>
@@ -112,6 +117,10 @@ const props = defineProps({
 			box-shadow: 1px 1px 2px oklch(55.9% 0.059 10.32),
 				-1px -1px 2px oklch(98.84% 0.01 325.65);
 		}
+	}
+	&:disabled {
+		opacity: 0.5;
+		cursor: default;
 	}
 	&__rounded {
 		border-radius: 15px;
