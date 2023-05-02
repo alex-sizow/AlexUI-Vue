@@ -16,6 +16,10 @@ const props = defineProps({
 		type: Boolean,
 		required: false,
 	},
+	outlined: {
+		type: Boolean,
+		required: false,
+	},
 });
 </script>
 
@@ -25,6 +29,7 @@ const props = defineProps({
 			'button',
 			`button__${color}`,
 			{ button__rounded: rounded },
+			{ button__outlined: outlined },
 		]"
 		:disabled="disabled">
 		{{ label }}
@@ -126,6 +131,13 @@ const props = defineProps({
 		border-radius: 15px;
 		&:enabled:hover {
 			border-radius: 18px;
+		}
+	}
+	&__outlined {
+		background: transparent;
+		color: oklch(0% 0 325.65);
+		&:enabled:hover {
+			background: transparent;
 		}
 	}
 }

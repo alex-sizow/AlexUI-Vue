@@ -67,6 +67,24 @@ import Button from '../components/Button.vue';
 				:disabled="true"></Button>
 		</div>
 	</div>
+	<div class="colors">
+		<h2 class="heading-2">Outlined</h2>
+		<div class="colors__line">
+			<Button
+				label="Primary"
+				:outlined="true"></Button>
+			<Button
+				label="Second"
+				color="second"
+				:rounded="true"
+				:disabled="true"
+				:outlined="true"></Button>
+			<Button
+				label="Danger"
+				color="danger"
+				:outlined="true"></Button>
+		</div>
+	</div>
 </template>
 
 <style lang="scss" scoped>
