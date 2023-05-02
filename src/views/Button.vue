@@ -9,20 +9,48 @@ import Button from '../components/Button.vue';
 		<div class="colors__line">
 			<Button label="Primary"></Button>
 			<Button
-				label="Primary"
+				label="Second"
 				color="second"></Button>
 			<Button
-				label="Primary"
+				label="Success"
 				color="success"></Button>
 			<Button
-				label="Primary"
+				label="Info"
 				color="info"></Button>
 			<Button
-				label="Primary"
+				label="Warning"
 				color="warning"></Button>
 			<Button
-				label="Primary"
+				label="Danger"
 				color="danger"></Button>
+		</div>
+	</div>
+	<div class="rounded">
+		<h2 class="heading-2">Rounded</h2>
+		<div class="colors__line">
+			<Button
+				label="Primary"
+				:rounded="true"></Button>
+			<Button
+				label="Second"
+				color="second"
+				:rounded="true"></Button>
+			<Button
+				label="Success"
+				color="success"
+				:rounded="true"></Button>
+			<Button
+				label="Info"
+				color="info"
+				:rounded="true"></Button>
+			<Button
+				label="Warning"
+				color="warning"
+				:rounded="true"></Button>
+			<Button
+				label="Danger"
+				color="danger"
+				:rounded="true"></Button>
 		</div>
 	</div>
 </template>

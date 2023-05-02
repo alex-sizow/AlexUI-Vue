@@ -8,11 +8,20 @@ const props = defineProps({
 		type: String,
 		default: 'primary',
 	},
+	rounded: {
+		type: Boolean,
+		required: false,
+	},
 });
 </script>
 
 <template>
-	<button :class="['button', `button__${color}`]">
+	<button
+		:class="[
+			'button',
+			`button__${color}`,
+			{ button__rounded: rounded },
+		]">
 		{{ label }}
 	</button>
 </template>
@@ -102,6 +111,12 @@ const props = defineProps({
 			background: var(--danger-hover);
 			box-shadow: 1px 1px 2px oklch(55.9% 0.059 10.32),
 				-1px -1px 2px oklch(98.84% 0.01 325.65);
+		}
+	}
+	&__rounded {
+		border-radius: 15px;
+		&:enabled:hover {
+			border-radius: 18px;
 		}
 	}
 }
