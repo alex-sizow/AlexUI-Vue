@@ -29,6 +29,12 @@ const props = defineProps({
 		default: 'normal',
 	},
 });
+
+const emit = defineEmits(['click']);
+
+const clickOnButton = () => {
+	emit('click');
+};
 </script>
 
 <template>
@@ -41,7 +47,8 @@ const props = defineProps({
 			{ button__icon: icon },
 			{ button__large: size === 'large' },
 		]"
-		:disabled="disabled">
+		:disabled="disabled"
+		@click="clickOnButton">
 		<span
 			class="button__icon"
 			v-if="icon"
