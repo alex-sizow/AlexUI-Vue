@@ -76,34 +76,34 @@ const eventForButton = () => {
 		<div class="colors__line">
 			<Button
 				label="Primary"
-				:outlined="true"></Button>
+				outlined="true"></Button>
 			<Button
 				label="Second"
 				color="second"
-				:rounded="true"
-				:disabled="true"
-				:outlined="true"></Button>
+				rounded="true"
+				disabled="true"
+				outlined="true"></Button>
 			<Button
 				label="Danger"
 				color="danger"
-				:outlined="true"></Button>
+				outlined="true"></Button>
 		</div>
 	</div>
 	<div class="colors">
 		<h2 class="heading-2">Outlined</h2>
 		<div class="colors__line">
 			<Button
-				:outlined="true"
+				outlined="true"
 				icon="heart"></Button>
 			<Button
 				color="second"
-				:rounded="true"
-				:disabled="true"
-				:outlined="true"
+				rounded="true"
+				disabled="true"
+				outlined="true"
 				icon="hand"></Button>
 			<Button
 				color="warning"
-				:rounded="true"
+				rounded="true"
 				icon="address-book"></Button>
 			<Button
 				label="Credit-card"
