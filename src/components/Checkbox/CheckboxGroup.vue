@@ -1,7 +1,13 @@
 <script setup>
 import Checkbox from '@/components/Checkbox/Checkbox.vue';
 
+const emits = defineEmits('update:value');
+
 const props = defineProps({
+	name: {
+		type: String,
+		required: true,
+	},
 	options: {
 		type: Array,
 		required: true,
@@ -19,7 +25,16 @@ const props = defineProps({
 </script>
 
 <template>
-	<Checkbox></Checkbox>
+	<div
+		v-for="option in options"
+		:key="option.id">
+		<Checkbox
+			:label="option.name"
+			:id="option.id"
+			:name="name"
+			:value="option.name"
+			:checked="value.includes(option.id)"></Checkbox>
+	</div>
 </template>
 
 <style lang="scss" scoped></style>
