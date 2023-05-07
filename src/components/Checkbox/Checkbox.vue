@@ -1,4 +1,6 @@
 <script setup>
+const emits = defineEmits('update:checked');
+
 const props = defineProps({
 	name: {
 		type: String,
@@ -20,7 +22,15 @@ const props = defineProps({
 		type: Boolean,
 		default: false,
 	},
+	disabled: {
+		type: Boolean,
+		default: false,
+	},
 });
+
+const handleClick = (event) => {
+	emits('update:checked', event.target.checked);
+};
 </script>
 
 <template>
@@ -29,8 +39,10 @@ const props = defineProps({
 		:name="name"
 		:id="id"
 		:value="value"
-		:checked="checked" />
-	<label for="id">{{ label }}</label>
+		:checked="checked"
+		:disabled="disabled"
+		@input="handleClick($event)" />
+	<label :for="id">{{ label }}</label>
 </template>
 
 <style lang="scss" scoped></style>
