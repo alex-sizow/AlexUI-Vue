@@ -120,12 +120,12 @@ const eventForButton = () => {
 			<Button
 				label="Normal"
 				color="primary"
-				:rounded="true"
+				rounded="true"
 				size="normal"></Button>
 			<Button
 				label="Large"
 				color="warning"
-				:rounded="true"
+				rounded="true"
 				size="large"></Button>
 		</div>
 	</div>
@@ -135,7 +135,7 @@ const eventForButton = () => {
 			<Button
 				label="Large"
 				color="danger"
-				:rounded="true"
+				rounded="true"
 				size="large"
 				@click="eventForButton"></Button>
 		</div>
