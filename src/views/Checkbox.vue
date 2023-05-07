@@ -51,7 +51,7 @@ const selectedPeople = ref(['h1', 'h3']);
 	<h2 class="heading-2">Checkbox Group</h2>
 	<p>Selected People: {{ selectedPeople }}</p>
 	<CheckboxGroup
-		name="people"
+		name="selectedPeople"
 		v-model:value="selectedPeople"
 		:options="listOfPeople"></CheckboxGroup>
 </template>

@@ -1,9 +1,13 @@
 <script setup>
 import Checkbox from '@/components/Checkbox/Checkbox.vue';
 
-const emits = defineEmits('update:value');
+const emit = defineEmits(['update:value']);
 
 const props = defineProps({
+	value: {
+		type: Array,
+		required: true,
+	},
 	name: {
 		type: String,
 		required: true,
@@ -22,6 +26,19 @@ const props = defineProps({
 		},
 	},
 });
+
+const check = (params) => {
+	let updateValue = [...props.value];
+	if (params.checked) {
+		updateValue.push(params.optionId);
+	} else {
+		updateValue.splice(
+			updateValue.indexOf(params.optionId),
+			1,
+		);
+	}
+	emit('update:value', updateValue);
+};
 </script>
 
 <template>
@@ -33,7 +50,9 @@ const props = defineProps({
 			:id="option.id"
 			:name="name"
 			:value="option.name"
-			:checked="value.includes(option.id)"></Checkbox>
+			:checked="value.includes(option.id)"
+			group
+			@updateCheckboxGroup="check"></Checkbox>
 	</div>
 </template>
 
