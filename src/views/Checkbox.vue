@@ -27,11 +27,13 @@ const listOfPeople = ref([
 	},
 ]);
 const selectedPeople = ref(['h1', 'h3']);
+
+const switchProfessional = ref(false);
 </script>
 
 <template>
 	<h1 class="heading-1">Checkbox</h1>
-	<h1 class="heading-2">Checkbox Active</h1>
+	<h2 class="heading-2">Checkbox Active</h2>
 	<Checkbox
 		name="checkboxActive"
 		label="Checkbox
@@ -54,6 +56,15 @@ const selectedPeople = ref(['h1', 'h3']);
 		name="selectedPeople"
 		v-model:value="selectedPeople"
 		:options="listOfPeople"></CheckboxGroup>
+	<h2 class="heading-2">Checkbox {{ switchProfessional }}</h2>
+	<Checkbox
+		type="switch"
+		name="switch"
+		label="Checkbox
+		Switch"
+		id="switch"
+		value="I love it"
+		v-model:checked="switchProfessional"></Checkbox>
 </template>
 
 <style lang="scss" scoped></style>
