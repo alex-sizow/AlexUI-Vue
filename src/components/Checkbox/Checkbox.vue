@@ -137,6 +137,7 @@ const handleClick = (event) => {
 	position: absolute;
 	z-index: -1;
 	opacity: 0;
+
 	&-container {
 		display: flex;
 		align-items: center;
@@ -147,6 +148,7 @@ const handleClick = (event) => {
 	}
 	& + label {
 		cursor: pointer;
+		box-shadow: var(--shadow);
 		text-indent: -9999px;
 		width: 50px;
 		height: 35px;
