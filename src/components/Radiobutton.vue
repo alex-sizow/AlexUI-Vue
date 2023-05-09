@@ -1,5 +1,5 @@
 <script setup>
-const emits = defineEmits(['update:checked']);
+const emits = defineEmits(['update:checkedValue']);
 
 const props = defineProps({
 	name: {
@@ -33,7 +33,7 @@ const props = defineProps({
 });
 
 const handleClick = (event) => {
-	emits('update:checked', event.target.checked);
+	emits('update:checkedValue', event.target.value);
 };
 </script>
 
@@ -47,6 +47,7 @@ const handleClick = (event) => {
 		:checked="checked"
 		:disabled="disabled"
 		@input="handleClick($event)" />
+	<label :for="id">{{ label }}</label>
 </template>
 
 <style lang="scss" scoped>
@@ -54,6 +55,7 @@ const handleClick = (event) => {
 	position: absolute;
 	z-index: -1;
 	opacity: 0;
+
 	& + label {
 		display: inline-flex;
 		align-items: center;
@@ -78,6 +80,7 @@ const handleClick = (event) => {
 		border-color: var(--primary);
 		background-color: var(--primary);
 		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+		box-shadow: var(--shadow);
 	}
 	&:not(:disabled):not(:checked) + label:hover::before {
 		border-color: var(--primary-hover);
@@ -88,6 +91,7 @@ const handleClick = (event) => {
 	}
 	&:focus + label::before {
 		box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.07);
+		box-shadow: var(--shadow);
 	}
 	&:focus:not(:checked) + label::before {
 		border-color: var(--primary);
