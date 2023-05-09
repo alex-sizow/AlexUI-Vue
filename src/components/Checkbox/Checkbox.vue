@@ -69,7 +69,7 @@ const handleClick = (event) => {
 		<label
 			v-if="type === 'switch'"
 			:for="id"
-			:class="switch__label"
+			class="switch__label"
 			>{{ label }}</label
 		>
 	</div>
