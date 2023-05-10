@@ -10,7 +10,7 @@ const props = defineProps({
 		type: String,
 		required: true,
 	},
-	text: {
+	type: {
 		type: String,
 		default: 'text',
 	},
@@ -25,6 +25,10 @@ const props = defineProps({
 	width: {
 		type: String,
 		default: '300px',
+	},
+	error: {
+		type: Array,
+		required: false,
 	},
 });
 
@@ -48,6 +52,16 @@ const updateValue = (event) => {
 			class="input-label"
 			>{{ label }}</label
 		>
+		<TransitionGroup>
+			<div
+				v-for="item of error"
+				:key="item.$uid"
+				class="form-error">
+				<div class="form_error__message">
+					{{ item.$message }}
+				</div>
+			</div>
+		</TransitionGroup>
 	</div>
 </template>
 
@@ -96,6 +110,7 @@ const updateValue = (event) => {
 		display: block;
 		position: absolute;
 		top: 20px;
+		left: 5px;
 		opacity: 0;
 		z-index: -1;
 		transition: 0.3s;
