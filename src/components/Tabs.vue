@@ -1,0 +1,60 @@
+<script setup>
+const props = defineProps({
+	names: {
+		type: Array,
+		required: true,
+	},
+	selectedTab: {
+		type: String,
+		required: false,
+	},
+});
+</script>
+
+<template>
+	<div class="tab-nav">
+		<span
+			v-for="(tab, index) in names"
+			:key="index"
+			class="tab-nav__item"
+			>{{ tab.label }}</span
+		>
+	</div>
+</template>
+
+<style lang="scss" scoped>
+.tab {
+	&-nav {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 15px;
+		&__item {
+			height: 40px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 10px;
+			border-radius: 7px;
+			cursor: pointer;
+			border: 1px solid var(--primary);
+			padding: 0 20px;
+			font-size: 15px;
+			&:hover {
+				background: var(--primary-hover);
+				color: #fff;
+				transition: 0.2s;
+			}
+			&.selected {
+				background: var(--primary);
+				color: #fff;
+			}
+		}
+	}
+	&-content {
+		padding: 20px;
+		border-radius: 7px;
+		background: #fff;
+	}
+}
+</style>

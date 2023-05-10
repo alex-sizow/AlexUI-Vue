@@ -31,7 +31,11 @@ const links = ref([
 	},
 	{
 		name: 'Input',
-		href: '/Input',
+		href: '/input',
+	},
+	{
+		name: 'Tabs',
+		href: '/tabs',
 	},
 ]);
 </script>
@@ -58,7 +62,7 @@ const links = ref([
 	height: 100%;
 	background: oklch(100% 0 274.3);
 	position: fixed;
-	width: 250px;
+	width: 170px;
 	padding: 20px;
 	transition: 0.3s;
 	box-shadow: 0px 0px 10px oklch(0% 0 274.3);
@@ -72,7 +76,9 @@ const links = ref([
 		padding: 10рх;
 		border: 2рх soUd #fff;
 		transition: 0.2s;
+		font-size: 17px;
 		font-weight: bold;
+		margin-bottom: 14px;
 
 		&:hover {
 			border-color: var(--primary);

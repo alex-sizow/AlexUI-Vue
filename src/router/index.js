@@ -4,6 +4,7 @@ import Index from '@/views/Index.vue';
 import Input from '@/views/Input.vue';
 import Progress from '@/views/Progress.vue';
 import Radiobutton from '@/views/Radiobutton.vue';
+import Tabs from '@/views/Tabs.vue';
 import Typography from '@/views/Typography.vue';
 
 import { createRouter, createWebHistory } from 'vue-router';
@@ -45,6 +46,11 @@ const router = createRouter({
 			path: '/input',
 			name: 'Input',
 			component: Input,
+		},
+		{
+			path: '/Tabs',
+			name: 'Tabs',
+			component: Tabs,
 		},
 	],
 });
