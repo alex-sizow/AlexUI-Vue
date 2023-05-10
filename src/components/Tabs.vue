@@ -1,4 +1,6 @@
 <script setup>
+const emit = defineEmits(['changeTab']);
+
 const props = defineProps({
 	names: {
 		type: Array,
@@ -9,6 +11,10 @@ const props = defineProps({
 		required: false,
 	},
 });
+
+const clickOnTab = (tabName) => {
+	emit('changeTab', tabName);
+};
 </script>
 
 <template>
@@ -16,10 +22,15 @@ const props = defineProps({
 		<span
 			v-for="(tab, index) in names"
 			:key="index"
-			class="tab-nav__item"
+			:class="[
+				'tab-nav__item',
+				{ selected: tab.name === selectedTab },
+			]"
+			@click="clickOnTab(tab.name)"
 			>{{ tab.label }}</span
 		>
 	</div>
+	<div class="tab-content"><slot /></div>
 </template>
 
 <style lang="scss" scoped>
@@ -52,6 +63,7 @@ const props = defineProps({
 		}
 	}
 	&-content {
+		margin-top: 15px;
 		padding: 20px;
 		border-radius: 7px;
 		background: #fff;
