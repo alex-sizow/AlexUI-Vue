@@ -29,6 +29,10 @@ const links = ref([
 		name: 'Progress',
 		href: '/progress',
 	},
+	{
+		name: 'Input',
+		href: '/Input',
+	},
 ]);
 </script>
 
@@ -46,6 +50,9 @@ const links = ref([
 
 <style lang="scss" scoped>
 .sidebar {
+	display: flex;
+	flex-direction: column;
+	z-index: 100;
 	left: 0;
 	top: 62px;
 	height: 100%;
@@ -66,7 +73,7 @@ const links = ref([
 		border: 2рх soUd #fff;
 		transition: 0.2s;
 		font-weight: bold;
-		margin-bottom: 10рх;
+
 		&:hover {
 			border-color: var(--primary);
 		}

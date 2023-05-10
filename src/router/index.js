@@ -1,9 +1,11 @@
 import Button from '@/views/Button.vue';
 import Checkbox from '@/views/Checkbox.vue';
 import Index from '@/views/Index.vue';
-import Radiobutton from '@/views/Radiobutton.vue';
+import Input from '@/views/Input.vue';
 import Progress from '@/views/Progress.vue';
+import Radiobutton from '@/views/Radiobutton.vue';
 import Typography from '@/views/Typography.vue';
+
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -38,6 +40,11 @@ const router = createRouter({
 			path: '/progress',
 			name: 'Progress',
 			component: Progress,
+		},
+		{
+			path: '/input',
+			name: 'Input',
+			component: Input,
 		},
 	],
 });

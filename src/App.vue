@@ -13,12 +13,7 @@ const toggleMenu = () => {
 
 <template>
 	<div class="container">
-		<div
-			class="sidebar-toggle"
-			@click="toggleMenu">
-			▶️
-		</div>
-		<layout-header />
+		<layout-header @toggleMenu="toggleMenu" />
 		<layout-sidebar :openSidebar="isOpenMenu" />
 		<div :class="['content', { content__full: !isOpenMenu }]">
 			<router-view />

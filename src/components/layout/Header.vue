@@ -1,5 +1,12 @@
+<script setup></script>
+
 <template>
 	<header class="navigation">
+		<button
+			class="navigation__sidebar"
+			@click="$emit('toggleMenu')">
+			Потом
+		</button>
 		<router-link to="/">My UI Kit</router-link>
 	</header>
 </template>
