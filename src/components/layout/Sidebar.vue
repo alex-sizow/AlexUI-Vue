@@ -37,6 +37,10 @@ const links = ref([
 		name: 'Tabs',
 		href: '/tabs',
 	},
+	{
+		name: 'Table',
+		href: '/table',
+	},
 ]);
 </script>
 
