@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 import Button from '@/components/Button.vue';
 import BaseTable from '@/components/Table/BaseTable.vue';
@@ -8,6 +8,9 @@ import TableRow from '@/components/Table/TableRow.vue';
 
 const TableHeads = ['Id', 'Author', 'Title', 'Cover', ''];
 const tableSizeColumns = '50px 1fr 2fr 150px 140px';
+
+const sortField = ref('id');
+const typeSort = ref('asc');
 
 const books = ref([
 	{
@@ -35,18 +38,50 @@ const books = ref([
 		bg: '#00C48C',
 	},
 ]);
+
+const booksSorting = computed(() => {
+	return books.value.sort((a, b) => {
+		let modifier = 1;
+		if (typeSort.value === 'desc') {
+			modifier = -1;
+		}
+		if (a[sortField.value] < b[sortField.value]) {
+			return -1 * modifier;
+		}
+		if (a[sortField.value] > b[sortField.value]) {
+			return 1 * modifier;
+		}
+		return 0;
+	});
+});
+
+const setSort = (name) => {
+	if (sortField.value === name) {
+		if (typeSort.value === 'asc') {
+			typeSort.value = 'desc';
+		} else {
+			typeSort.value = 'asc';
+		}
+	} else {
+		sortField.value = name;
+	}
+};
 </script>
 
 <template>
 	<h1 class="header-1">Table</h1>
 	<h2 class="header-2">Base Table</h2>
+	<span> Sort Field: {{ sortField }}</span>
+	<span> Type Sort: {{ typeSort }}</span>
 	<BaseTable
 		:head="TableHeads"
 		:columnTemplates="tableSizeColumns"
+		@sorting="setSort"
 		><TableRow
-			v-for="book in books"
+			v-for="book in booksSorting"
 			:key="book.id"
 			:columnTemplates="tableSizeColumns"
+			:bgRow="book.bg"
 			><TableColumn :columnTitle="TableHeads[0]"
 				>{{ book.id }} </TableColumn
 			><TableColumn :columnTitle="TableHeads[1]"

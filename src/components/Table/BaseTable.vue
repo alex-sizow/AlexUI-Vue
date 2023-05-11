@@ -9,6 +9,12 @@ const props = defineProps({
 		required: false,
 	},
 });
+
+const emit = defineEmits(['sorting']);
+
+const clickOnHead = (name) => {
+	emit('sorting', name.toLowerCase());
+};
 </script>
 
 <template>
@@ -20,7 +26,8 @@ const props = defineProps({
 				<div
 					v-for="(item, index) in head"
 					:key="index"
-					class="table-head__name">
+					class="table-head__name"
+					@click="clickOnHead(item)">
 					{{ item }}
 				</div>
 			</div>
